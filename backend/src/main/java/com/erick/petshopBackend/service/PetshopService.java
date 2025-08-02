@@ -44,7 +44,24 @@ public class PetshopService {
         }
 
 
+        return comparandoPetshop(petshops);
 
+    }
+
+
+    public Petshop comparandoPetshop(List<Petshop> petshops){
+        if (petshops == null || petshops.isEmpty()) return null; //tentar retornar um erro para o usuário.
+        Petshop melhor = petshops.get(0);
+
+        for (Petshop p : petshops){
+            if (p.getPrecoTotal() < melhor.getPrecoTotal()){
+                melhor = p;
+            } else if (p.getPrecoTotal() == melhor.getPrecoTotal() && p.getDistancia() < melhor.getDistancia()){
+                melhor = p;
+            }
+        }
+
+        return melhor;
 
     }
 
