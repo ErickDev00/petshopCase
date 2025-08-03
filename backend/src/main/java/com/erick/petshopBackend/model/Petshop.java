@@ -5,13 +5,10 @@ import java.time.LocalDate;
 public class Petshop {
 
     String nome;
-    LocalDate data;
     double distancia;
     double precoCaoPequeno;
     double precoCaoGrande;
     double precoTotal;
-    int qtdCaesPequenos;
-    int qtdCaesGrandes;
 
 
     //construtores
@@ -46,14 +43,6 @@ public class Petshop {
         this.nome = nome;
     }
 
-    public LocalDate getData() {
-        return data;
-    }
-
-    public void setData(LocalDate data) {
-        this.data = data;
-    }
-
     public double getDistancia() {
         return distancia;
     }
@@ -84,22 +73,6 @@ public class Petshop {
 
     public void setPrecoTotal(double precoTotal) {
         this.precoTotal = precoTotal;
-    }
-
-    public int getQtdCaesPequenos() {
-        return qtdCaesPequenos;
-    }
-
-    public void setQtdCaesPequenos(int qtdCaesPequenos) {
-        this.qtdCaesPequenos = qtdCaesPequenos;
-    }
-
-    public int getQtdCaesGrandes() {
-        return qtdCaesGrandes;
-    }
-
-    public void setQtdCaesGrandes(int qtdCaesGrandes) {
-        this.qtdCaesGrandes = qtdCaesGrandes;
     }
 
 
