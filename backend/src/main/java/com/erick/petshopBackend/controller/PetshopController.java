@@ -1,18 +1,18 @@
 package com.erick.petshopBackend.controller;
 
+import com.erick.petshopBackend.dto.PetshopDTO;
 import com.erick.petshopBackend.model.Petshop;
 import com.erick.petshopBackend.service.PetshopService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 
 @RestController
 @RequestMapping("/petshop")
+@CrossOrigin(origins = "http://localhost:5173")
 public class PetshopController {
 
     @Autowired
@@ -20,12 +20,11 @@ public class PetshopController {
 
 
     @PostMapping("/melhor-opcao")
-    public Petshop obterMelhor(
-            @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate data,
-            @RequestParam int qtdCaesPequenos,
-            @RequestParam int qtdCaesGrandes) {
+    public ResponseEntity<?> obterMelhor(@RequestBody PetshopDTO dto) {
 
-        return petshopService.melhorPetshop(data, qtdCaesPequenos, qtdCaesGrandes);
+        Petshop melhor = petshopService.melhorPetshop(dto.getData(), dto.getQtdCaesPequenos(), dto.getQtdCaesGrandes());
+
+        return ResponseEntity.ok(melhor);
     }
 
 
