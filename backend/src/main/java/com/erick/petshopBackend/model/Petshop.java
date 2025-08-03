@@ -1,36 +1,33 @@
 package com.erick.petshopBackend.model;
 
-import java.time.LocalDate;
-
 public class Petshop {
 
     String nome;
-    double distancia;
-    double precoCaoPequeno;
-    double precoCaoGrande;
-    double precoTotal;
+    private double distancia;
+    private double precoCaoPequeno;
+    private double precoCaoGrande;
+    private double acrescimoCachorroPequeno;
+    private double acrescimoCachorroGrande;
+
 
 
     //construtores
     public Petshop(){
     }
 
-    /*public Petshop(String nome, double distancia, double precoCaoPequeno, double precoCaoGrande,
-                    LocalDate data, int qtdCaesPequenos, int qtdCaesGrandes){
-        this.nome = nome;
-        this.distancia = distancia;
-        this.precoCaoPequeno = precoCaoPequeno;
-        this.precoCaoGrande = precoCaoGrande;
-        this.data = data;
-        this.qtdCaesPequenos = qtdCaesPequenos;
-        this.qtdCaesGrandes = qtdCaesGrandes;
-    } */
 
-    public Petshop(String nome, double distancia, double precoCaoPequeno, double precoCaoGrande){
+    public Petshop(String nome,
+                   double distancia,
+                   double precoCaoPequeno,
+                   double precoCaoGrande,
+                   double acrescimoCachorroPequeno,
+                   double acrescimoCachorroGrande){
         this.nome = nome;
         this.distancia = distancia;
         this.precoCaoPequeno = precoCaoPequeno;
         this.precoCaoGrande = precoCaoGrande;
+        this.acrescimoCachorroPequeno = acrescimoCachorroPequeno;
+        this.acrescimoCachorroGrande = acrescimoCachorroGrande;
     }
 
 
@@ -67,12 +64,20 @@ public class Petshop {
         this.precoCaoGrande = precoCaoGrande;
     }
 
-    public double getPrecoTotal() {
-        return precoTotal;
+    public double getAcrescimoCachorroPequeno() {
+        return acrescimoCachorroPequeno;
     }
 
-    public void setPrecoTotal(double precoTotal) {
-        this.precoTotal = precoTotal;
+    public void setAcrescimoCachorroPequeno(double acrescimoCachorroPequeno) {
+        this.acrescimoCachorroPequeno = acrescimoCachorroPequeno;
+    }
+
+    public double getAcrescimoCachorroGrande() {
+        return acrescimoCachorroGrande;
+    }
+
+    public void setAcrescimoCachorroGrande(double acrescimoCachorroGrande) {
+        this.acrescimoCachorroGrande = acrescimoCachorroGrande;
     }
 
 
