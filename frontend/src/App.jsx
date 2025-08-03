@@ -9,24 +9,37 @@ function App() {
 
     const form = e.target;
     const data = form.data.value;
-    const qtdCaesPequenos = form.qtdCaesPequenos.value;
-    const qtdCaesGrandes = form.qtdCaesGrandes.value;
-
-    const url = new URL("http://localhost:8080/petshop/melhor-opcao");
-    url.searchParams.append("data", data);
-    url.searchParams.append("qtdCaesPequenos", qtdCaesPequenos);
-    url.searchParams.append("qtdCaesGrandes", qtdCaesGrandes);
+    const qtdCaesPequenos = parseInt(form.qtdCaesPequenos.value);
+    const qtdCaesGrandes = parseInt(form.qtdCaesGrandes.value);
 
     if (qtdCaesPequenos + qtdCaesGrandes < 1) {
       alert("Informe pelo menos um cão para o serviço.");
-      return; // para o envio do formulário
+      return;
     }
 
+    const url = new URL("http://localhost:8080/petshop/melhor-opcao");
+    //url.searchParams.append("data", data);
+    //url.searchParams.append("qtdCaesPequenos", qtdCaesPequenos);
+    //url.searchParams.append("qtdCaesGrandes", qtdCaesGrandes);
+
+    const dados = {
+      data: data,
+      qtdCaesPequenos: qtdCaesPequenos,
+      qtdCaesGrandes: qtdCaesGrandes,
+    };
+
     try {
-      const response = await fetch(url, { method: "POST" });
+      const response = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(dados),
+      });
+
       const resultado = await response.json();
       setResultado(resultado);
-      console.log(resultado);
+      //console.log(resultado);
     } catch (erro) {
       console.log("Erro:", erro);
     }
