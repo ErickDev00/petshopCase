@@ -16,6 +16,11 @@ function App() {
     url.searchParams.append("qtdCaesPequenos", qtdCaesPequenos);
     url.searchParams.append("qtdCaesGrandes", qtdCaesGrandes);
 
+    if (qtdCaesPequenos + qtdCaesGrandes < 1) {
+      alert("Informe pelo menos um cão para o serviço.");
+      return; // para o envio do formulário
+    }
+
     try {
       const response = await fetch(url, { method: "POST" });
       const resultado = await response.json();
@@ -34,7 +39,7 @@ function App() {
         </h1>
         <h2 className="text-lg text-black">
           Busque o estabelecimento perfeito <br /> e com melhor custo-benefício
-          para o seu pet:
+          para os seus pets:
         </h2>
 
         <div>
@@ -52,6 +57,7 @@ function App() {
                 id="data"
                 className="px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-200 font"
                 required
+                min={new Date().toISOString().split("T")[0]}
               />
 
               <br />
@@ -65,6 +71,8 @@ function App() {
                 type="number"
                 name="qtdCaesPequenos"
                 required
+                min="0"
+                step="1"
                 className="px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-200"
               />
 
@@ -82,6 +90,8 @@ function App() {
                 type="number"
                 name="qtdCaesGrandes"
                 required
+                min="0"
+                step="1"
                 className="px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-blue-200"
               />
 
