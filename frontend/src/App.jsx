@@ -17,7 +17,9 @@ function App() {
       return;
     }
 
-    const url = new URL("http://localhost:8080/petshop/melhor-opcao");
+    const url = new URL(
+      "https://rigid-bernelle-erickteste-1e26ecd1.koyeb.app/petshop/melhor-opcao"
+    );
 
     const dados = {
       data: data,
