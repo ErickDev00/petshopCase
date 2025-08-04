@@ -18,9 +18,6 @@ function App() {
     }
 
     const url = new URL("http://localhost:8080/petshop/melhor-opcao");
-    //url.searchParams.append("data", data);
-    //url.searchParams.append("qtdCaesPequenos", qtdCaesPequenos);
-    //url.searchParams.append("qtdCaesGrandes", qtdCaesGrandes);
 
     const dados = {
       data: data,
@@ -39,7 +36,6 @@ function App() {
 
       const resultado = await response.json();
       setResultado(resultado);
-      //console.log(resultado);
     } catch (erro) {
       console.log("Erro:", erro);
     }
