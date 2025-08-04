@@ -38,6 +38,7 @@ function App() {
 
       const resultado = await response.json();
       setResultado(resultado);
+      form.reset();
     } catch (erro) {
       console.log("Erro:", erro);
     }
