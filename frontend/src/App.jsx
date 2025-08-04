@@ -39,6 +39,10 @@ function App() {
       const resultado = await response.json();
       setResultado(resultado);
       form.reset();
+
+      form.data.value = "";
+      form.qtdCaesPequenos.value = "";
+      form.qtdCaesGrandes.value = "";
     } catch (erro) {
       console.log("Erro:", erro);
     }
