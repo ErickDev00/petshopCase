@@ -2,19 +2,17 @@ package com.erick.petshopBackend.model;
 
 public class Petshop {
 
-    String nome;
+    private String nome;
     private double distancia;
+    private double precoTotal;
     private double precoCaoPequeno;
     private double precoCaoGrande;
     private double acrescimoCachorroPequeno;
     private double acrescimoCachorroGrande;
 
 
-
-    //construtores
     public Petshop(){
     }
-
 
     public Petshop(String nome,
                    double distancia,
@@ -31,7 +29,6 @@ public class Petshop {
     }
 
 
-    //getter e setter
     public String getNome() {
         return nome;
     }
@@ -80,5 +77,11 @@ public class Petshop {
         this.acrescimoCachorroGrande = acrescimoCachorroGrande;
     }
 
+    public double getPrecoTotal() {
+        return precoTotal;
+    }
 
+    public void setPrecoTotal(double precoTotal) {
+        this.precoTotal = precoTotal;
+    }
 }
